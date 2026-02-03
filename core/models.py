@@ -12,7 +12,6 @@ class MainClient(models.Model):
         InstaClient,
         on_delete=models.CASCADE,
         related_name='main_clients',
-        unique=True  # Bitta InstaClient uchun faqat bitta MainClient
     )
 
     def __str__(self):

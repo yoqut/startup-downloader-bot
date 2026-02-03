@@ -20,13 +20,13 @@ async def root():
 class InstagramWebhookView(View):
     """Instagram webhook view"""
 
-    VERIFY_TOKEN = envSettings.LONG_TIME_TOKEN
+    VERIFY_TOKEN = envSettings.MY_VERIFY
+
 
     async def get(self, request):
         """Webhook verification"""
         verify_token = request.GET.get("hub.verify_token")
         challenge = request.GET.get("hub.challenge")
-
         if verify_token == self.VERIFY_TOKEN:
             return HttpResponse(
                 content=challenge,
@@ -36,7 +36,7 @@ class InstagramWebhookView(View):
 
         return HttpResponse(
             content="Verification failed",
-            status_code=403
+            status=403
         )
 
     # instagram_service/views.py

@@ -27,6 +27,11 @@ class InstaClient(models.Model):
         return f"{self.full_name}({self.username})"
 
     @classmethod
+    async def user_exists(cls, user_id):
+        return await InstaClient.objects.filter(client_id=user_id).aexists()
+
+
+    @classmethod
     async def create_from_webhook(cls,
                                     user_info: dict,
                                   ):

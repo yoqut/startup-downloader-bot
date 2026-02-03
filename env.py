@@ -12,10 +12,8 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     DATABASE_PUBLIC_URL: str = "sqlite:///db.sqlite3"
     MY_VERIFY: str
-    SHORT_TIME_ACCESS_TOKEN: str
     CLIENT_ID: int
     CLIENT_SECRET: str
-    GENERATE_TOKEN_WEBHOOK: str
     LONG_TIME_TOKEN: str
     RABBITMQ_URL: str = "amqp://guest:guest@localhost:5672//"
 

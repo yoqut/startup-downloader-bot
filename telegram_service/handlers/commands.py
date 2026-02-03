@@ -17,15 +17,15 @@ TEXT_HELP = (
     "1️⃣ <b>/insta</b> buyrug‘ini yuboring\n"
     "2️⃣ Bot bergan <b>kod</b>ni nusxalang\n"
     "3️⃣ Kodni ushbu profilga yuboring:\n"
-    "   🔗 <b>instagram.com/yoqut.service</b>\n"
-    "4️⃣ Endi yoqqan videoni <b>instagram.com/yoqut.service</b> profiliga yuboring\n\n"
+    "   🔗 <b>instagram.com/yoqutmedia</b>\n"
+    "4️⃣ Endi yoqqan videoni <b>instagram.com/yoqutmedia</b> profiliga yuboring\n\n"
     "✅ Video bot orqali sizga qaytib keladi."
 )
 
 TEXT_INSTA = (
     "🔐 <b>Sizning shaxsiy kod raqamingiz:</b>\n"
     "<code>{prefix}{code}</code>\n\n"
-    "📩 Ushbu kodni Instagramdagi <b>https://www.instagram.com/yoqut.service</b> profiliga yuboring.\n"
+    "📩 Ushbu kodni Instagramdagi <b>https://www.instagram.com/yoqutmedia</b> profiliga yuboring.\n"
     "So‘ng videoni ham shu profilga yuborsangiz — bot sizga qaytarib beradi."
 )
 

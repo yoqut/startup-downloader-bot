@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 class InstagramMessageService:
-    _BOT_CLIENT_NOT_FOUND = """Foydalanuvchi topilmadi !\nUshbu bot bergan koddan foydalaning\n\nt.me/social_video_grabberbot"""
+    _BOT_CLIENT_NOT_FOUND = """Foydalanuvchi topilmadi !\nUshbu bot bergan koddan foydalaning\n\nt.me/YoqutMediaBot"""
     _ADD_NEW_BOT_CLIENT = """Yangi foydalanuvchi qo'shildi: {user}"""
     _ALREADY_EXISTS = """{user} allaqachon ro'yxatda!"""
 
@@ -46,17 +46,8 @@ class InstagramMessageService:
 
             attachment = attachments[0]
             payload = attachment.get('payload')
-            msg_type = attachment.get('type')
 
-            # Faqat ig_reel ni qayta ishlash
-            if msg_type == "ig_reel" and payload:
-                url = payload.get('url')
-                title = payload.get('title', '')
-                await TelegramMessageService().send_video_by_url(sender_id, url, title)
-            else:
-                logger.info(f"Boshqa message type ignore qilindi: {msg_type}")
-
-
+            await TelegramMessageService().manager(sender_id, payload)
 
         except Exception as e:
             logger.error(f"Manager xatosi: {e}", exc_info=True)
@@ -189,6 +180,9 @@ class InstagramMessageService:
             'fields': 'id,username,name,profile_pic,follower_count,is_verified_user',
             'access_token': self.access_token
         }
+
+        if await InstaClient.user_exists(user_id):
+            return f"User {user_id} already exists"
 
         try:
             connector = aiohttp.TCPConnector(ssl=False)
